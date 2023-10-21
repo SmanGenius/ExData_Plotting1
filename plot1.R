@@ -27,6 +27,8 @@ power_cons_2 <- power_cons_2[!(power_cons_2$Global_active_power == "?"),]
 power_cons_2$Global_active_power <- as.double(power_cons_2$Global_active_power)
 
 #plot a histogram as request
-hist(power_cons_2$Global_active_power, main = "Global Active Power", col = "red", xlab = "Global Active Power(kilowatts)", ylab = "Frecuency")
+png("plot1.png", width = 480, height = 480)
 
+hist(power_cons_2$Global_active_power, main = "Global Active Power", col = "red", xlab = "Global Active Power(kilowatts)", ylab = "Frecuency")
+dev.off()
 
