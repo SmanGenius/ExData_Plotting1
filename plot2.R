@@ -1,8 +1,7 @@
 library(tidyverse)
 library(janitor)
 
-
-
+#Open file
 cons_con_p2 <- read.table("dataunzip/household_power_consumption.txt",stringsAsFactors=FALSE, header = TRUE,  sep= ";")
 
 
@@ -11,7 +10,7 @@ head(cons_con_p2)
 str(cons_con_p2)
 
 cons_con_p2 <- mutate(cons_con_p2, complete_date= paste(cons_con_p2$Date,  cons_con_p2$Time))
-
+#Convert data type
 cons_con_p2$complete_date <- strptime(cons_con_p2$complete_date, format = "%d/%m/%Y %H:%M:%S")#" %A %d/%m/%Y %H:%M:%S"
 cons_con_p2$Date <- as.Date(cons_con_p2$Date, format = "%d/%m/%Y")
 
@@ -19,7 +18,7 @@ cons_con_p2$Date <- as.Date(cons_con_p2$Date, format = "%d/%m/%Y")
 cons_con_p2$Global_active_power <- as.numeric(cons_con_p2$Global_active_power)
 
 str(cons_con_p2)
-
+#Filter the days
 cons_con_p2 <- subset(cons_con_p2, Date >= "2007-02-01" & Date <= "2007-02-02")
 Sys.setlocale("LC_TIME", "English")
 
