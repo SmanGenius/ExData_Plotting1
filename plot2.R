@@ -37,6 +37,7 @@ str(cons1)
 
 cons_con_p2 <- mutate(cons_con_p2, week_day = weekdays(cons_con_p2$Date))
 
+#Save and create plot
 png("plot2.png", width = 480, height = 480)
 
 plot(cons1$complete_date,cons1$Global_active_power, type= "l", xlab = "Day", ylab = "GLobal Active Power(Kilowatts)", labels = FALSE) 
