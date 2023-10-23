@@ -17,6 +17,8 @@ cons_con_p2$Date <- as.Date(cons_con_p2$Date, format = "%d/%m/%Y")
 cons_con_p2$Sub_metering_1 <- as.numeric(cons_con_p2$Sub_metering_1)
 cons_con_p2$Sub_metering_2 <- as.numeric(cons_con_p2$Sub_metering_2)
 
+cons_con_p2 <- subset(cons_con_p2, Date >= "2007-02-01" & Date <= "2007-02-02")
+
 png("plot3.png", width = 480, height = 480)
 
 plot(cons_con_p2$complete_date,cons_con_p2$Sub_metering_1, type = "l", xlab='' , ylab = "Energy sub metering", labels = FALSE)
